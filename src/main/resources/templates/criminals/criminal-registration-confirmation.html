@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sd="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Criminal Registration Confirmation</title>
+</head>
+<body>
+
+<h2>Criminal registered successfully</h2>
+
+<!-- display created criminal's data -->
+<ul>
+    <li th:text="'Family name: ' + ${criminal.familyName}"></li>
+    <li th:text="'Forename: ' + ${criminal.forename}"></li>
+    <li th:text="'Photo: ' + ${criminal.photoUrl}"></li>
+    <li th:text="'Activity: ' + ${criminal.active}"></li>
+    <li th:text="'Country(es): ' + ${criminal.countries}"></li>
+    <li th:text="'Gender: ' + ${criminal.gender}"></li>
+    <li th:text="'Date of birth: ' + ${criminal.dateOfBirth}"></li>
+    <li th:text="'Alias: ' + ${criminal.alias}"></li>
+    <li th:text="'Height: ' + ${criminal.height}"></li>
+    <li th:text="'ColorOfHair: ' + ${criminal.colorOfHair}"></li>
+    <li th:text="'EyeColor: ' + ${criminal.eyeColor}"></li>
+    <li th:text="'Special signs: ' + ${criminal.specialSigns}"></li>
+    <li th:text="'Place of birth: ' + ${criminal.placeOfBirth}"></li>
+    <li th:text="'Nationality: ' + ${criminal.nationalities}"></li>
+    <li th:text="'Language(s): ' + ${criminal.languages}"></li>
+    <li th:text="'Last place of residence: ' + ${criminal.lastPlaceOfResidence}"></li>
+    <li th:text="'CriminalProfession: ' + ${criminal.criminalProfession}"></li>
+    <li th:text="'TheLatest criminal case: ' + ${criminal.theLatestCriminalCase}"></li>
+    <li th:text="'CriminalStructure: ' + ${criminal.criminalStructure}"></li>
+</ul>
+
+<hr>
+
+<a th:href="@{/criminals}">Show all wanted criminals</a>
+
+</body>
+</html>
+
+</body>
+</html>

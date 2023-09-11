@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}" xmlns:sd="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Criminals</title>
+</head>
+<body>
+
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div th:each="criminal: ${criminals}" class="col-md-3">
+
+                    <div class="product-box">
+
+                        <a th:href="@{/criminals/(criminalId=${criminal.id()})}">
+                            <img src="criminal.photoUrl" alt="" class="img-responsive">
+                        </a>
+
+                        <a th:href="@{/criminals/(criminalId=${criminal.id()})}">
+                            <h1 th:text="|${criminal.familyName} ${criminal.forename}|"></h1>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div th:if="${criminals.isEmpty()}" class="alert alert-warning col-md-12" role="alert">No criminals found!</div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div sd:pagination-summary="">info
+                        <div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <nav class="pull-right">
+                                <ul class="pagination" sd:pagination-split="7" sd:pagination="full">
+                                    <!-- Pagination created by SpringDataDialect, this content is just for mockup -->
+                                    <li class="disabled"><a href="#" aria-label="Previous"><span
+                                            aria-hidden="true">&laquo;</span></a></li>
+                                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Sidebar-->
+<aside class="sidebar">
+
+    <form th:action="@{/criminals}" method="GET">
+        <input>
+    </form>
+    <img src="img/photo.jpg" alt="User photo" class="photo">
+    <!--Contacts-->
+    <div class="contacts">
+        <h3 class="sidebar_title">Contacts</h3>
+        <div>
+            <p>
+                <span class="contact_type">C:</span>
+                <a href="tel:+77777777777" class="contact_link">+7 777 777 77 77</a> </p>
+            <p>
+                <span class="contact_type">E:</span>
+                <a href="mailto:chornyiav@gmail.com" class="contact_link">chornyiav@gmail.com</a> </p>
+        </div>
+    </div>
+</aside>
+
+
+</body>
+</html>

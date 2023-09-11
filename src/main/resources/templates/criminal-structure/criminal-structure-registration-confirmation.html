@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Criminal Structure Registration Confirmation</title>
+</head>
+<body>
+
+<h2>Criminal structure registered successfully</h2>
+
+<!-- display created criminal structure's data -->
+<ul>
+    <li th:text="'Name: ' + ${criminal.name}"></li>
+    <li th:text="'Type of criminal structure: ' + ${criminal.typeOfCriminalStructure}"></li>
+</ul>
+
+<hr>
+
+<a th:href="@{/criminals}">Show all wanted criminals</a>
+
+</body>
+</html>
+
+</body>
+</html>
