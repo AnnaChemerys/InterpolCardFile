@@ -59,7 +59,7 @@ public class Criminal {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @Column(name = "id")
+    @Column(name = "alias")
     private String alias;
 
     @Column(name = "height")
@@ -115,6 +115,9 @@ public class Criminal {
     @JoinColumn(name = "criminal_structure_id")
     private CriminalStructure criminalStructure;
 
+    @Column(name = "if_alive")
+    private boolean ifAlive;
+
     public void addLanguage(Language theLanguage) {
 
         if (languages == null) {
@@ -142,5 +145,30 @@ public class Criminal {
         countries.add(theCountry);
     }
 
-    // create constructor
+    public Criminal(String familyName, String forename, String photoUrl, boolean active, Set<Country> countries,
+                    Gender gender, LocalDate dateOfBirth, String alias, int height, ColorOfHair colorOfHair,
+                    EyeColor eyeColor, String specialSigns, City placeOfBirth, Set<Nationality> nationalities,
+                    Set<Language> languages, City lastPlaceOfResidence, CriminalProfession criminalProfession,
+                    String theLatestCriminalCase, CriminalStructure criminalStructure, boolean ifAlive) {
+        this.familyName = familyName;
+        this.forename = forename;
+        this.photoUrl = photoUrl;
+        this.active = active;
+        this.countries = countries;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.alias = alias;
+        this.height = height;
+        this.colorOfHair = colorOfHair;
+        this.eyeColor = eyeColor;
+        this.specialSigns = specialSigns;
+        this.placeOfBirth = placeOfBirth;
+        this.nationalities = nationalities;
+        this.languages = languages;
+        this.lastPlaceOfResidence = lastPlaceOfResidence;
+        this.criminalProfession = criminalProfession;
+        this.theLatestCriminalCase = theLatestCriminalCase;
+        this.criminalStructure = criminalStructure;
+        this.ifAlive = ifAlive;
+    }
 }

@@ -9,6 +9,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@Table(name = "criminal_structure")
 public class CriminalStructure {
 
     @Id
@@ -20,7 +21,8 @@ public class CriminalStructure {
     private String name;
 
     @Column(name = "type_of_criminal_structure")
-    private String typeOfCriminalStructure;
+    @Enumerated(EnumType.STRING)
+    private TypeOfCriminalStructure typeOfCriminalStructure;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "criminalStructure")
     private Set<Criminal> crimeMembers;

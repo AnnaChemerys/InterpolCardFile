@@ -47,8 +47,4 @@ public class Language {
 
         criminals.add(theCriminal);
     }
-
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name = "CriminalId", nullable = false)
-//    private Criminal criminal;
 }
