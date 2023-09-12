@@ -33,7 +33,7 @@ public class Language {
     @JoinTable(
             name = "language_criminal",
             joinColumns = @JoinColumn(name = "language_id"),
-            inverseJoinColumns = @JoinColumn(name = "criminal_id")
+            inverseJoinColumns = @JoinColumn(name = "criminal_language_id")
     )
     private List<Criminal> criminals;
 

@@ -1,14 +1,16 @@
 package ua.com.chemerys.InterpolCardFile.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "criminal_structure")
 public class CriminalStructure {
 

@@ -10,10 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ua.com.chemerys.InterpolCardFile.entity.Criminal;
 import ua.com.chemerys.InterpolCardFile.service.CriminalService;
 
@@ -37,7 +34,7 @@ public class CriminalController {
         return "criminals/criminal-registration-form";
     }
 
-    @PostMapping("/criminals/processCriminalRegistrationForm")
+    @PostMapping("/processCriminalRegistrationForm")
     public String saveCriminal(@Valid @ModelAttribute("criminal") Criminal theCriminal,
                                BindingResult theBindingResult) {
         if (theBindingResult.hasErrors()) {
@@ -49,7 +46,7 @@ public class CriminalController {
         }
     }
 
-    @GetMapping("/criminals/list")
+    @GetMapping("/list")
     public String criminalsList(ModelMap modelMap,
                                 @PageableDefault(size = 15) @SortDefault("familyName") Pageable pageable,
                                 String nameKeyword) {
@@ -64,7 +61,7 @@ public class CriminalController {
         return "criminals/criminal-list";
     }
 
-    @GetMapping("/criminals/filteredList")
+    @GetMapping("/filteredList")
     public String criminalsFilteredList(ModelMap modelMap,
                                         @PageableDefault(size = 15) @SortDefault("familyName") Pageable pageable,
                                         String nameKeyword) {
@@ -73,5 +70,15 @@ public class CriminalController {
         modelMap.addAttribute("criminals", page);
 
         return "criminals/criminal-list-filtered";
+    }
+
+    @GetMapping("/delete")
+    public String deleteCriminal(@RequestParam("criminalId") int theId) {
+
+        // delete the criminal structure
+        criminalService.deleteById(theId);
+
+        //redirect to the /criminalStructures/list
+        return "redirect:/criminals/list";
     }
 }

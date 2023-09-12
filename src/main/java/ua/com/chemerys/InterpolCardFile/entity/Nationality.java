@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Table(name = "nationalities")
 @Entity
 @Getter
@@ -29,4 +32,25 @@ public class Nationality {
 
     @Column(name = "country_id")
     private int countryId;
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+                    CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinTable(
+            name = "nationality_criminal",
+            joinColumns = @JoinColumn(name = "nationality_id"),
+            inverseJoinColumns = @JoinColumn(name = "criminal_nationality_id")
+    )
+    private List<Criminal> criminals;
+
+    // add a convenience method
+
+    public void addCriminal(Criminal theCriminal) {
+
+        if (criminals == null) {
+            criminals = new ArrayList<>();
+        }
+
+        criminals.add(theCriminal);
+    }
 }

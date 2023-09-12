@@ -7,7 +7,6 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 
@@ -47,7 +46,7 @@ public class Criminal {
                     CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(
             name = "wanted_by_country_criminal",
-            joinColumns = @JoinColumn(name = "criminal_id"),
+            joinColumns = @JoinColumn(name = "criminal_wanted_by_country_id"),
             inverseJoinColumns = @JoinColumn(name = "country_id")
     )
     private Set<Country> countries;
@@ -85,7 +84,7 @@ public class Criminal {
                     CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(
             name = "nationality_criminal",
-            joinColumns = @JoinColumn(name = "criminal_id"),
+            joinColumns = @JoinColumn(name = "criminal_nationality_id"),
             inverseJoinColumns = @JoinColumn(name = "nationality_id")
     )
     private Set<Nationality> nationalities;
@@ -95,7 +94,7 @@ public class Criminal {
                     CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(
             name = "language_criminal",
-            joinColumns = @JoinColumn(name = "criminal_id"),
+            joinColumns = @JoinColumn(name = "criminal_language_id"),
             inverseJoinColumns = @JoinColumn(name = "language_id")
     )
     private Set<Language> languages;

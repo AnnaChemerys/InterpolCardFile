@@ -64,6 +64,9 @@ public class CriminalServiceImpl implements CriminalService {
 
     @Override
     public void deleteById(int theId) {
-        criminalRepository.deleteById(theId);
+
+        if (!findById(theId).isIfAlive()) {
+            criminalRepository.deleteById(theId);
+        }
     }
 }
