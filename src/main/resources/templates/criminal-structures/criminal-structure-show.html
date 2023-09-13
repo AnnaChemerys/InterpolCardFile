@@ -1,10 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+
+<header class="header">
+
+    <nav class="header__navigation navigation">
+
+        <ul class="navigation__list">
+            <li class="navigation__item">
+                <a class="navigation__link navigation__link_active">Home</a>
+            </li>
+            <li class="navigation__item">
+
+                <form action="#" th:action="@{/logout}" method="POST">
+
+                    <input type="submit" value="Logout">
+                </form>
+                <!--                <a class="navigation__link" th:href="@{/register/showRegistrationForm}">Sign up</a>-->
+            </li>
+            <li class="navigation__item">
+                <a class="navigation__link" href="https://www.interpol.int/">The real Interpol website</a>
+            </li>
+        </ul>
+
+        <p class="header__hashtag">#MyLittleVersionOfInterpol</p>
+
+        <ul class="header__social social">
+            <li class="social__item">
+                <a href="https://www.linkedin.com/company/interpol/" class="social__link social__link_linkedin"></a>
+            </li>
+            <li class="social__item">
+                <a href="https://www.facebook.com/InterpolHQ" class="social__link social__link_facebook"></a>
+            </li>
+            <li class="social__item">
+                <a href="https://www.instagram.com/interpol_hq/" class="social__link social__link_instagram"></a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!--Main-->
+
+<div class="main">
+
+    <!--Main content-->
+    <div class="main_content">
+        <!--About criminal-->
+        <div class="about">
+            <h1 class="about_name" th:text="${criminalStructure.name}"></h1>
+        </div>
+        <!--Particulars-->
+        <div class="particulars">
+            <h3 class="title">Particulars</h3>
+            <table>
+                <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td th:text="${criminalStructure.name}"></td>
+                </tr>
+                <tr>
+                    <td>Type</td>
+                    <td th:text="${criminalStructure.typeOfCriminalStructure}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="particulars">
+            <h3 class="title">Members</h3>
+
+            <div th:each="accomplice: ${criminalStructure.crimeMembers}" class="col-md-3">
+
+                <div class="criminal-box">
+
+                    <a th:href="@{/criminals/(criminalId=${accomplice.id})}">
+                        <img src="criminal.photoUrl" alt="" class="img-responsive">
+                    </a>
+
+                    <a th:href="@{/criminals/(criminalId=${accomplice.id})}">
+                        <h1 th:text="|${accomplice.familyName} ${accomplice.forename}|"></h1>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div sec:authorize="hasRole('SPECIALAGENT')">
+
+            <!-- Add EDIT and ADD TO ARCHIVE and DELETE buttons ... this is ONLY for the SPESIALAGENTS -->
+
+            <p>
+                <a th:href="@{/criminalStructures/editCriminalStructure}">Edit</a>
+            </p>
+
+            <hr>
+
+            <p>
+                <a th:href="@{/criminalStructures/addToArchive}">Add to archive</a>
+            </p>
+
+            <hr>
+
+            <p>
+                <a th:href="@{/criminalStructures/delete}">Delete</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>

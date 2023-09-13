@@ -46,6 +46,12 @@ public class CriminalController {
         }
     }
 
+    @GetMapping("/{id}")
+    public String showCriminal(@PathVariable("id") int criminalId, Model theModel) {
+        theModel.addAttribute("criminal", criminalService.findById(criminalId));
+        return "criminals/criminal-show";
+    }
+
     @GetMapping("/list")
     public String criminalsList(ModelMap modelMap,
                                 @PageableDefault(size = 15) @SortDefault("familyName") Pageable pageable,

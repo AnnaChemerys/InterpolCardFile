@@ -48,6 +48,12 @@ public class CriminalStructureController {
         }
     }
 
+    @GetMapping("/{id}")
+    public String showCriminal(@PathVariable("id") int criminalStructureId, Model theModel) {
+        theModel.addAttribute("criminalStructure", criminalStructureService.findById(criminalStructureId));
+        return "criminal-structures/criminal-structure-show";
+    }
+
     @GetMapping("/list")
     public String criminalStructuresList(Model theModel) {
 
