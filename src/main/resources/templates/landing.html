@@ -3,21 +3,119 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-    <title>luv2code Landing Page</title>
+    <title>Home Little Interpol Page</title>
+
+    <link th:href="@{/styles/style.css}" rel="stylesheet" />
 </head>
 
 <body>
-<h2>luv2code Landing Page</h2>
-<hr>
 
-<p>
-Welcome to the landing page! This page is open to the public ... no login required :-)
-</p>
+<header class="header">
 
-<hr>
-<p>
-    <a th:href="@{/employees}">Access Secure Site</a>
-</p>
+    <nav class="header__navigation navigation">
+
+        <ul class="navigation__list">
+            <li class="navigation__item">
+                <a class="navigation__link navigation__link_active">Home</a>
+            </li>
+            <li class="navigation__item">
+                <a class="navigation__link" th:href="@{/showMyLoginPage}">Sign in</a>
+            </li>
+            <li class="navigation__item">
+                <a class="navigation__link" th:href="@{/register/showRegistrationForm}">Sign up</a>
+            </li>
+            <li class="navigation__item">
+                <a class="navigation__link" href="https://www.interpol.int/">The real Interpol website</a>
+            </li>
+        </ul>
+
+        <p class="header__hashtag">#MyLittleVersionOfInterpol</p>
+
+        <ul class="header__social social">
+            <li class="social__item">
+                <a href="https://www.linkedin.com/company/interpol/" class="social__link social__link_linkedin"></a>
+            </li>
+            <li class="social__item">
+                <a href="https://www.facebook.com/InterpolHQ" class="social__link social__link_facebook"></a>
+            </li>
+            <li class="social__item">
+                <a href="https://www.instagram.com/interpol_hq/" class="social__link social__link_instagram"></a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<h2>This is just control project for Java course, but...
+    <br><br>
+    What does the real Interpol say about itself?
+</h2>
+
+<div class="main-content">
+
+    <p><i>Imagine you are the victim of a crime committed by someone from another country. How can police catch the
+        person?</i></p>
+
+    <p>Our full name is the International Criminal Police Organization and we are an inter-governmental organization.
+        We have 195 member countries, and we help police in all of them to work together to make the world a safer
+        place.
+
+        To do this, we enable them to share and access data on crimes and criminals, and we offer a range of technical
+        and operational support.</p>
+
+    <h3>Who makes up INTERPOL?</h3>
+
+    <p>The General Secretariat coordinates our day-to-day activities to fight a range of crimes. Run by the Secretary
+        General, it is staffed by both police and civilians and comprises a headquarters in Lyon, a global complex for
+        innovation in Singapore and several satellite offices in different regions.
+
+        In each country, an INTERPOL National Central Bureau (NCB) provides the central point of contact for the General
+        Secretariat and other NCBs. An NCB is run by national police officials and usually sits in the government
+        ministry responsible for policing.
+
+        The General Assembly is our governing body and it brings all countries together once a year to take
+        decisions.</p>
+
+    <h3>Connecting police</h3>
+
+    <p>We connect all our countries via a communications system called I-24/7. Countries use this secure network to
+        contact each other, and the General Secretariat. It also allows them to access our databases and services in
+        real-time, from both central and remote locations.
+
+        We also coordinate networks of police and experts in different crime areas, who come together through working
+        groups and at conferences to share experiences and ideas.</p>
+
+    <h3>What we do</h3>
+    <p>The General Secretariat provides a range of expertise and services to our member countries. We manage 19 police
+        databases with information on crimes and criminals (from names and fingerprints to stolen passports), accessible
+        in real-time to countries.
+
+        We offer investigative support such as forensics, analysis, and assistance in locating fugitives around the
+        world. Training is an important part of what we do in many areas so that officials know how to work efficiently
+        with our services.
+
+        This expertise supports national efforts in combating crimes across three global areas we consider the most
+        pressing today; terrorism, cybercrime and organized crime.
+
+        Officials working in each specialized crime area run a variety of different activities alongside member
+        countries. This can be investigative support, field operations, training and networking.
+
+        Importantly, since crimes evolve, we keep an eye on the future through research and development in international
+        crime and trends.</p>
+
+    <h3>A global platform</h3>
+
+    <p>Today’s crimes are increasingly international. It is crucial that there is coordination among all the different
+        players in maintaining a global security architecture.
+
+        Since INTERPOL is a global organization, it can provide this platform for cooperation; we enable police to work
+        directly with their counterparts, even between countries which do not have diplomatic relations.
+
+        We also provide a voice for police on the world stage, engaging with governments at the highest level to
+        encourage this cooperation and use of our services.
+
+        All our actions are politically neutral and taken within the limits of existing laws in different countries.</p>
+</div>
 
 </body>
 </html>

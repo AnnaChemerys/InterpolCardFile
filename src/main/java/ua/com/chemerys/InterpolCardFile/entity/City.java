@@ -26,6 +26,6 @@ public class City {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "placeOfBirth")
     private Set<Criminal> crimePlaceOfBirth;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "last_place_of_residence_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "lastPlaceOfResidence")
     private Set<Criminal> crimeLastPlaceOfResidence;
 }

@@ -11,24 +11,24 @@ public class SecurityController {
         return "landing";
     }
 
-    @GetMapping("/employees")
+    @GetMapping("/visitors")
     public String showHome() {
         return "home";
     }
 
-    // add a request mapping for /leaders
+    // add a request mapping for /agents
 
-    @GetMapping("/leaders")
-    public String showLeaders() {
+    @GetMapping("/agents")
+    public String showAgents() {
 
-        return "leaders";
+        return "agents";
     }
 
-    // add request mapping for /systems
+    // add request mapping for /specialagents
 
-    @GetMapping("/systems")
-    public String showSystems() {
+    @GetMapping("/specialagents")
+    public String showSpecialAgents() {
 
-        return "systems";
+        return "specialagents";
     }
 }

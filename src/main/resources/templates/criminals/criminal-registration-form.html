@@ -11,8 +11,8 @@
 
 <div class="container">
 
-    <div id="loginbox" style="margin-top: 50px;"
-         class="col-md-3 col-md-offset-2 col-sm-6 col-sm-offset-2">
+    <div id="loginbox" style="margin-top: 50px;">
+<!--         class="col-md-3 col-md-offset-2 col-sm-6 col-sm-offset-2">-->
 
         <div class="card border-info">
 
@@ -79,7 +79,7 @@
                         <!-- Gender -->
                         <div class="form-group">
                             <label>Gender</label>
-                            <div th:each="tempGender : ${T(ua/com/chemerys/InterpolCardFile/entity/Gender).values()}">
+                            <div th:each="tempGender : ${T(ua.com.chemerys.InterpolCardFile.entity.Gender).values()}">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" th:field="*{gender}" th:value="${tempGender}" class="custom-control-input">
                                     <label class="custom-control-label" th:for="${#ids.prev('gender')}" th:text="${tempGender}">gender</label>
@@ -116,7 +116,7 @@
                         <!-- Color of hair -->
                         <div class="form-group">
                             <label>Color of hair</label>
-                            <div th:each="tempColorOfHair : ${T(ua/com/chemerys/InterpolCardFile/entity/ColorOfHair).values()}">
+                            <div th:each="tempColorOfHair : ${T(ua.com.chemerys.InterpolCardFile.entity.ColorOfHair).values()}">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" th:field="*{colorOfHair}" th:value="${tempColorOfHair}" class="custom-control-input">
                                     <label class="custom-control-label" th:for="${#ids.prev('colorOfHair')}" th:text="${tempColorOfHair}">Color of hair</label>
@@ -127,7 +127,7 @@
                         <!-- Eye color -->
                         <div class="form-group">
                             <label>Eye color</label>
-                            <div th:each="tempEyeColor : ${T(ua/com/chemerys/InterpolCardFile/entity/EyeColor).values()}">
+                            <div th:each="tempEyeColor : ${T(ua.com.chemerys.InterpolCardFile.entity.EyeColor).values()}">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" th:field="*{eyeColor}" th:value="${tempEyeColor}" class="custom-control-input">
                                     <label class="custom-control-label" th:for="${#ids.prev('eyeColor')}" th:text="${tempEyeColor}">Eye color</label>
@@ -142,7 +142,7 @@
 
                         <!-- ToDo Nationality -->
                         <div style="margin-bottom: 25px" class="input-group">
-                            <input type="text" th:field="*{email}" placeholder="Email (*)" class="form-control" />
+                            <input type="text" th:field="*{nationalities}" placeholder="Nationality" class="form-control" />
                         </div>
 
                         <!-- Photo -->
@@ -152,18 +152,18 @@
 
                         <!-- ToDo Language(s) -->
                         <div style="margin-bottom: 25px" class="input-group">
-                            <input type="text" th:field="*{email}" placeholder="Email (*)" class="form-control" />
+                            <input type="text" th:field="*{languages}" placeholder="Language(s)" class="form-control" />
                         </div>
 
                         <!-- ToDo Last place of residence -->
                         <div style="margin-bottom: 25px" class="input-group">
-                            <input type="text" th:field="*{email}" placeholder="Email (*)" class="form-control" />
+                            <input type="text" th:field="*{lastPlaceOfResidence}" placeholder="Last place of residence" class="form-control" />
                         </div>
 
                         <!-- Criminal profession -->
                         <div class="form-group">
-                            <label>Eye color</label>
-                            <div th:each="tempCriminalProfession : ${T(ua/com/chemerys/InterpolCardFile/entity/CriminalProfession).values()}">
+                            <label>Criminal profession</label>
+                            <div th:each="tempCriminalProfession : ${T(ua.com.chemerys.InterpolCardFile.entity.CriminalProfession).values()}">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" th:field="*{criminalProfession}" th:value="${tempCriminalProfession}" class="custom-control-input">
                                     <label class="custom-control-label" th:for="${#ids.prev('criminalProfession')}" th:text="${tempCriminalProfession}">Criminal profession</label>
@@ -178,7 +178,7 @@
 
                         <!-- ToDo Crime group or mafia structure -->
                         <div style="margin-bottom: 25px" class="input-group">
-                            <input type="text" th:field="*{email}" placeholder="Email (*)" class="form-control" />
+                            <input type="text" th:field="*{criminalStructure}" placeholder="Crime group or mafia structure" class="form-control" />
                         </div>
 
                         <!-- Activity -->

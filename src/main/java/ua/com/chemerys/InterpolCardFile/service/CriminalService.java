@@ -21,5 +21,7 @@ public interface CriminalService {
 
     void update(Criminal criminal);
 
+    void addToArchive(Criminal criminal);
+
     void deleteById(int theId);
 }
