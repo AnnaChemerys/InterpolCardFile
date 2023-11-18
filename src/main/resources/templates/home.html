@@ -27,9 +27,9 @@
 
 <div sec:authorize="hasRole('AGENT')">
 
-    <!-- Add a link to point to /agents ... this is for managers -->
+    <!-- Add a link to point to /agents ... this is for all agents -->
     <p>
-        <a th:href="@{/agents}">Leadership Meeting</a>
+        <a th:href="@{/agents}">Agents meeting</a>
         (Only for Agent)
     </p>
 
